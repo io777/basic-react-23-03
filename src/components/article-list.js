@@ -22,13 +22,11 @@ class ArticleList extends Component {
                          toggleOpen = {toggleItem}
                          ref = {this.setListElementRef}
                 />
-                {this.getComments(article.comments)}
+                <CommentList comments = {article.comments}
+                             id = {article.id}
+                />
             </li>
         ))
-    }
-
-    getComments(comments) {
-      return <CommentList comments={comments}/>
     }
 
     setListElementRef = listElement => {
