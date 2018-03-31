@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {findDOMNode} from 'react-dom'
 import Article from './article'
 import accordion from '../decorators/accordion'
+import CommentList from './comment-list'
 
 class ArticleList extends Component {
     render() {
@@ -21,8 +22,13 @@ class ArticleList extends Component {
                          toggleOpen = {toggleItem}
                          ref = {this.setListElementRef}
                 />
+                {this.getComments(article.comments)}
             </li>
         ))
+    }
+
+    getComments(comments) {
+      return <CommentList comments={comments}/>
     }
 
     setListElementRef = listElement => {
