@@ -34,7 +34,6 @@ class CommentList extends Component {
   }
 }
 
-
 CommentList.propTypes = {
   comments: PropTypes.array,
   showItem: PropTypes.bool,

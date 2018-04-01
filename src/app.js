@@ -4,6 +4,7 @@ import Chart from './components/chart'
 import UserForm from './components/user-form'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
+import DateRange from './components/date-range'
 
 class App extends Component {
     state = {
@@ -19,6 +20,8 @@ class App extends Component {
 
         return (
             <div className="App">
+                <DateRange/>
+                <br/>
                 <UserForm />
                 <Select options = {options} value = {this.state.selected} onChange = {this.handleSelectChange} multi/>
                 <Chart articles = {articles} />
