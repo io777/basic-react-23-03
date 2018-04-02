@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-const Comment = ({ user, text }) =>
-  <div className="comment">
-    <h5 className="comment__user">{user}</h5>
-    <p className="comment__text">{text}</p>
-  </div>
+class Comment extends PureComponent {
+  render() {
+    const { comment } = this.props;
+    return (
+      <div className="comment">
+        <h5 className="comment__user">{comment.user}</h5>
+        <p className="comment__text">{comment.text}</p>
+      </div>
+    )
+  }
+}
 
 Comment.propTypes = {
   user: PropTypes.string.isRequired,

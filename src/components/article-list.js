@@ -22,9 +22,7 @@ class ArticleList extends Component {
                          toggleOpen = {toggleItem}
                          ref = {this.setListElementRef}
                 />
-                <CommentList comments = {article.comments}
-                             id = {article.id}
-                />
+                <CommentList comments = {article.comments} />
             </li>
         ))
     }

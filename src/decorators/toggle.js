@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default OriginalComponent => class DecoratedComponent extends React.Component {
+export default OriginalComponent => class toggleComponent extends React.Component {
   state = {
     showItem: false
   }
@@ -12,7 +12,7 @@ export default OriginalComponent => class DecoratedComponent extends React.Compo
   }
 
   render() {
-    return <OriginalComponent {...this.props}
+    return <toggleComponent {...this.props}
                               visibleItem = {this.visibleItem}
                               showItem = {this.state.showItem}
     />

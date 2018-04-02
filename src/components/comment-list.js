@@ -8,8 +8,8 @@ class CommentList extends Component {
     const { comments, showItem, visibleItem } = this.props
     return (
       <ul>
-        {(comments === undefined || comments.length === 0) ?
-          <p>Комментарии отсутствуют</p> :
+        {
+          (!comments) ? <p>Комментарии отсутствуют</p> :
           <div>
             <h4>Комментарии {comments.length}</h4>
             <button onClick={() => visibleItem()}>{showItem ? 'close' : 'open'}</button>
@@ -27,8 +27,7 @@ class CommentList extends Component {
 
     return comments.map(comment =>
       <li key={comment.id}>
-        <Comment {...comment}
-        />
+        <Comment comment={comment}/>
       </li>
     )
   }
