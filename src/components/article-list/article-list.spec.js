@@ -2,6 +2,9 @@ import React from 'react'
 import {shallow, render, mount} from 'enzyme'
 import DecoratedArticleList, {ArticleList} from './index'
 import articles from '../../fixtures'
+jest.mock('react-addons-css-transition-group', () => ({children}) => {
+  return <span>{children}</span>
+})
 
 
 describe('ArticleList', () => {
@@ -29,4 +32,15 @@ describe('ArticleList', () => {
 
         expect(fetched).toEqual(true)
     });
+
+    it('should close first article', () => {
+        const wrapper = mount(<DecoratedArticleList articles = {articles}/>)
+        expect(wrapper.find('.test--article__body').length).toEqual(0)
+
+        wrapper.find('.test--article__btn').at(0).simulate('click')
+        expect(wrapper.find('.test--article__body').length).toEqual(1)
+
+        wrapper.find('.test--article__btn').at(0).simulate('click')
+        expect(wrapper.find('.test--article__body').length).toEqual(0)
+    })
 });
