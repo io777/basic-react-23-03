@@ -6,7 +6,6 @@ jest.mock('react-addons-css-transition-group', () => ({children}) => {
   return <span>{children}</span>
 })
 
-
 describe('ArticleList', () => {
     it('should render a list', () => {
         const wrapper = shallow(<ArticleList articles = {articles} />)
@@ -38,8 +37,6 @@ describe('ArticleList', () => {
         expect(wrapper.find('.test--article__body').length).toEqual(0)
 
         wrapper.find('.test--article__btn').at(0).simulate('click')
-        expect(wrapper.find('.test--article__body').length).toEqual(1)
-
         wrapper.find('.test--article__btn').at(0).simulate('click')
         expect(wrapper.find('.test--article__body').length).toEqual(0)
     })
