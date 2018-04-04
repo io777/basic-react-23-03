@@ -2,6 +2,9 @@ import React from 'react'
 import { shallow, render, mount } from 'enzyme'
 import DecoratedCommentsList, {CommentList} from './index'
 import articles from '../../fixtures'
+jest.mock('react-addons-css-transition-group', () => ({children}) => {
+  return <span>{children}</span>
+})
 
 const comments = articles[0].comments
 
