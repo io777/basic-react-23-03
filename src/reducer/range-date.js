@@ -1,7 +1,6 @@
 import { RANGE_ARTICLE } from '../constants'
-import defaultState from '../fixtures'
 
-export default (dateRange = defaultState.dateRange, action) => {
+export default (dateRange = { from: null, to: null }, action) => {
     const { type, payload } = action
     switch (type) {
         case RANGE_ARTICLE:

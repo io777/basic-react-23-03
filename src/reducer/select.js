@@ -1,7 +1,6 @@
 import { SELECT_ARTICLE } from '../constants'
-import defaultState from '../fixtures'
 
-export default (selectedState = defaultState.selectedArticle, action) => {
+export default (selectedState = [], action) => {
     const { type, payload } = action
     switch (type) {
         case SELECT_ARTICLE:
