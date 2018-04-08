@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 //import {findDOMNode} from 'react-dom'
 import Article from '../article'
 import accordion from '../../decorators/accordion'
+import diffArray from '../../lib/select-helper'
+import diffDate from '../../lib/date-range-helper'
 
 export class ArticleList extends Component {
     static propTypes = {
@@ -30,11 +32,11 @@ export class ArticleList extends Component {
     getArticles() {
         const { articles, openItemId, toggleItem } = this.props
         return articles.map(article => (
-            <li key = {article.id} className = "test--article-list__item">
-                <Article article = {article}
-                         isOpen = {article.id === openItemId}
-                         toggleOpen = {toggleItem}
-                         ref = {this.setListElementRef}
+            <li key={article.id} className="test--article-list__item">
+                <Article article={article}
+                    isOpen={article.id === openItemId}
+                    toggleOpen={toggleItem}
+                    ref={this.setListElementRef}
                 />
             </li>
         ))
@@ -47,4 +49,6 @@ export class ArticleList extends Component {
 
 export default connect(state => ({
     articles: state.articles
+        .filter(article => diffArray(article, state.select))
+        .filter(article => diffDate(article, state.dateRange))
 }))(accordion(ArticleList))
