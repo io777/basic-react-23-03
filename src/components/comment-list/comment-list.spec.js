@@ -16,7 +16,7 @@ describe('CommentList', () => {
 
   it('should have comments list closed by default', () => {
     const wrapper = render(<DecoratedCommentsList comments = {comments} />)
-    expect(wrapper.find('.test--comment__body').length).toEqual(0)
+    expect(wrapper.find('.test--comment__item').length).toEqual(0)
   });
 
   it('should open comments list', () => {
