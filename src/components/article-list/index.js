@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 //import {findDOMNode} from 'react-dom'
 import Article from '../article'
 import accordion from '../../decorators/accordion'
-import {filtratedArticles} from '../../selectors'
+import { filtratedArticles } from '../../selectors'
 
 export class ArticleList extends Component {
     static propTypes = {
@@ -32,11 +32,11 @@ export class ArticleList extends Component {
     getArticles() {
         const { articles, openItemId, toggleItem } = this.props
         return articles.map(article => (
-            <li key = {article.id} className = "test--article-list__item">
-                <Article article = {article}
-                         isOpen = {article.id === openItemId}
-                         toggleOpen = {toggleItem}
-                         ref = {this.setListElementRef}
+            <li key={article.id} className="test--article-list__item">
+                <Article id={article.id}
+                    isOpen={article.id === openItemId}
+                    toggleOpen={toggleItem}
+                    ref={this.setListElementRef}
                 />
             </li>
         ))

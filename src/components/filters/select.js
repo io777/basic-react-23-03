@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Select from 'react-select'
 import { connect } from 'react-redux'
 import { changeSelection } from '../../ac'
-import { articleListSelector, filtersSelectionSelector} from '../../selectors'
+import { articleListSelector, filtersSelectionSelector } from '../../selectors'
 
 import 'react-select/dist/react-select.css'
 
