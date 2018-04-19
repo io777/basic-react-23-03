@@ -6,6 +6,8 @@ export default store => next => action => {
 
     next({ ...rest, type: type + START })
 
+    console.log('++++', 'MiddlewareAction', action)
+
     //dev only!!!! remove in prod
     setTimeout(() => {
         fetch(callAPI)

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createCommentSelector } from '../selectors'
 
-function Comment({comment}) {
+function Comment({ comment }) {
+    console.log('++++', 'comment', comment)
     return (
         <div>
             {comment.text} <b>by {comment.user}</b>
