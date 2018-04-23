@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Route, Redirect, NavLink, Switch } from 'react-router-dom'
 import ArticleList from './components/routes/articles'
@@ -31,22 +31,22 @@ class App extends Component {
         return (
             <div className="App">
                 <Menu>
-                    <MenuItem to = "/counter">counter</MenuItem>
-                    <MenuItem to = "/filters">filters</MenuItem>
-                    <MenuItem to = "/articles">articles</MenuItem>
-                    <MenuItem to = "/comments">comments</MenuItem>
+                    <MenuItem to="/counter">counter</MenuItem>
+                    <MenuItem to="/filters">filters</MenuItem>
+                    <MenuItem to="/articles">articles</MenuItem>
+                    <MenuItem to="/comments">comments</MenuItem>
                 </Menu>
 
-                <UserForm value = {this.state.user} onChange = {this.onUserChange}/>
+                <UserForm value={this.state.user} onChange={this.onUserChange} />
 
                 <Switch>
-                    <Redirect exact from = "/" to = "/articles" />
-                    <Route path = "/counter" component = {Counter} exact />
-                    <Route path = "/filters" component = {Filters}/>
-                    <Route path = "/articles/new" render = {() => <h1>New article page</h1>} />
-                    <Route path = "/articles" component = {ArticleList} />
-                    <Route path = "/comments" component = {CommentsPage} />
-                    <Route path = "*" render = {() => <h1>Not found page</h1>} />
+                    <Redirect exact from="/" to="/articles" />
+                    <Route path="/counter" component={Counter} exact />
+                    <Route path="/filters" component={Filters} />
+                    <Route path="/articles/new" render={() => <h1>New article page</h1>} />
+                    <Route path="/articles" component={ArticleList} />
+                    <Route path="/comments" component={CommentsPage} />
+                    <Route path="*" render={() => <h1>Not found page</h1>} />
                 </Switch>
             </div>
         )

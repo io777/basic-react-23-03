@@ -30,19 +30,19 @@ class Article extends Component {
         return (
             <div>
                 <h2>{article.title}</h2>
-                <button className = "test--article__btn"
-                        onClick = {() => toggleOpen(article.id)}
+                <button className="test--article__btn"
+                    onClick={() => toggleOpen(article.id)}
                 >
                     {isOpen ? 'close' : 'open'}
                 </button>
-                <button onClick = {this.handleDelete}>delete me</button>
+                <button onClick={this.handleDelete}>delete me</button>
                 <CSSTransition
-                    transitionName = "article"
-                    transitionEnterTimeout = {500}
-                    transitionLeaveTimeout = {300}
-                    transitionAppearTimeout = {1000}
+                    transitionName="article"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    transitionAppearTimeout={1000}
                     transitionAppear
-                    component = 'div'
+                    component='div'
                 >
                     {this.getBody()}
                 </CSSTransition>
@@ -62,9 +62,9 @@ class Article extends Component {
 
         if (article.loading) return <Loader />
         return (
-            <section className = "test--article__body">
+            <section className="test--article__body">
                 {article.text}
-                <CommentList article = {article}/>
+                <CommentList article={article} />
             </section>
         )
     }

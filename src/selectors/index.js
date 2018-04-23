@@ -10,7 +10,7 @@ export const idSelector = (_, props) => props.id
 export const filtersSelectionSelector = createSelector(filtersSelector, (filters) => filters.selected)
 
 export const filtratedArticles = createSelector(articleListSelector, filtersSelector, (articles, filters) => {
-    const {selected, dateRange: {from, to}} = filters
+    const { selected, dateRange: { from, to } } = filters
     console.log('---', 'calculating filtration')
 
     return articles.filter(article => {
@@ -24,7 +24,9 @@ export const createCommentSelector = () => createSelector(commentMapSelector, id
     return comments.get(id)
 })
 
-export const articleSelector = createSelector(articlesMapSelector, idSelector, (articles, id) => articles.get(id))
+export const articleSelector = createSelector(articlesMapSelector, idSelector, (articles, id) => {
+    return articles.get(id)
+})
 
 export const totalCommentsSelector = state => state.comments.total
 export const commentsPagenationSelector = state => state.comments.pagination
